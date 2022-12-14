@@ -2,6 +2,9 @@ import re
 import subprocess
 from sys import platform
 
+ICMP_HEADER_SIZE = 8
+IP_HEADER = 20
+
 
 def ping(os_type, host, packet_size=1) -> bool:
     if not os_type:
@@ -26,7 +29,7 @@ def mtu(os_type, host):
             l = m
         else:
             r = m
-    return l
+    return l + ICMP_HEADER_SIZE + IP_HEADER
 
 
 if __name__ == '__main__':
@@ -38,7 +41,7 @@ if __name__ == '__main__':
         while not re.match(host_regex, host):
             host = input("Input host: ")
 
-        if not ping(os_type, host, 1):
+        if not ping(os_type, host, 0):
             print(host, " is not available or icmp is blocked")
             exit(0)
 
