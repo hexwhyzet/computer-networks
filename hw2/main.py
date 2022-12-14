@@ -3,7 +3,7 @@ import subprocess
 from sys import platform
 
 ICMP_HEADER_SIZE = 8
-IP_HEADER = 20
+IP_HEADER_SIZE = 20
 
 
 def ping(os_type, host, packet_size=1) -> bool:
