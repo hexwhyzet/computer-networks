@@ -21,7 +21,7 @@ def ping(os_type, host, packet_size=1) -> bool:
     return code == 0
 
 
-def mtu(os_type, host):
+def mtu(os_type, host) -> int:
     l, r = 0, 10000
     while r - l > 1:
         m = (l + r) // 2
