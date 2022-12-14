@@ -35,7 +35,6 @@ def mtu(os_type, host) -> int:
 if __name__ == '__main__':
     try:
         os_type = 'win' not in platform.lower()
-
         host = ""
         host_regex = r"^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$"
         while not re.match(host_regex, host):
