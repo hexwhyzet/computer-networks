@@ -29,7 +29,7 @@ def mtu(os_type, host) -> int:
             l = m
         else:
             r = m
-    return l + ICMP_HEADER_SIZE + IP_HEADER
+    return l + ICMP_HEADER_SIZE + IP_HEADER_SIZE
 
 
 if __name__ == '__main__':
